@@ -18,20 +18,22 @@
 </head>
 <body<%= sidebar === 'disable' ? ' class="no-sidebar"' : '' %>>
   <div id="sidebar_wrapper">
-    <div id="sidebar_switch">
+    <div id ="sidebar-toggle"><img src="data:image/x-icon;base64,AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAAAABMLAAATCwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOSkAAjkpABj5KQAOQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA5KQAL+WnANnkpAAsAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADmqwDh5acAwuSjAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOSjAAbkowBa5qsA8ueuAP/kpQCu5KUAg+SkAG3kowA85KQAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOSjADrlpwDM5q0A/+iwAP/osQD/6LEA/+iwAP/nrgD/5qwA/eSlAMDkowAoAAAAAAAAAAAAAAAAAAAAAOSjABblpwDh6LIA/+iyAP/osQDG6bUMn+ixAJvosQCm6LIA3eiyAP/nsAD/5KYAyeWjAAsAAAAAAAAAAAAAAADkowBb564A/+iyAP/psxSA6LEBAwAAAAAAAAAAAAAAAOixABfosADR6LIA/+etAP/lowA/AAAAAAAAAAAAAAAA5aUAf+ixAP/pswX367klJgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOiyAP/osQD/5aUAYgAAAAAAAAAAAAAAAOWlAInmqgD/56wG7eiwFiIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADmqQD/5acA/+emAGoAAAAAAAAAAAAAAADmpQCE46MA/+SjAPDjogAhAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA5KMA/+SjAP/qpgBnAAAAAAAAAAAAAAAA2qANZealAP/kpAD95KQAQwAAAAAAAAAAAAAAAAAAAAAAAAAA5KQAreSkAP/kpAD/6aYAUQAAAAAAAAAAAAAAAMiYICbrpwDz5KQA/+SkANrkpABz5KQAV+SkAFTkpABf5KQAleSkAPrkpAD/6qcA7aqKPxwAAAAAAAAAAAAAAAAAAAAA6acAXOWkAO7kpAD/5KQA/+SkAP/kpAD/5KQA/+SkAP/kpAD/5KQA7O6oAFgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADlpAAn5KQAceSkAJ7kpAC05KQAuuSkALLkpACc5KQAb+SkACQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA//8AAPH/AAD4/wAA/H8AAPAHAADgAzoAwAEAAMHBAADD8QAAw/EAAMPxAADD4QAAwAEAAOADAADwBwAA//8AAA==" alt="Cobrowser"/> MENU</div>
+    <div id="sidebar_switch" style="display:none">
       <span class="tree">Files</span>
       <span class="headings">Headings</span>
     </div>
-    <div id="tree"></div>
+    <div id="tree"  style="display:none"></div>
     <div id="headings">
-<%    for(var i = 0; i < headings.length; i += 1){ %>
+<%    for(var i = 0, j = 0; i < headings.length; i += 1){ %>
+<%    if (headings[i].level == 2 ) { j++; } %>
       <div class="heading h<%= headings[i].level %>">
-        <a href="#<%= headings[i].id %>"><%= headings[i].text %></a>
+        <a href="#<%= headings[i].id %>"><i><%= j %></i> <%= headings[i].text %></a>
       </div>
 <%    } %>
     </div>
   </div>
-  <div id="sidebar-toggle"></div>
+
   <div id="container">
     <%= content %>
   </div>

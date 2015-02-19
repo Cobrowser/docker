@@ -222,9 +222,9 @@ function switchTab(tab){
 
   // Switch to the last viewed sidebar tab if stored, otherwise default to folder tree
   if(window.localStorage && window.localStorage.docker_sidebarTab){
-    switchTab(window.localStorage.docker_sidebarTab);
+    switchTab('headings');
   }else{
-    switchTab('tree');
+    switchTab('headings');
   }
 }));
 
